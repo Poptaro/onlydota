@@ -29,6 +29,13 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"better-sqlite3": "^9.4.3"
+		"better-sqlite3": "^9.4.3",
+		"bits-ui": "^0.21.2",
+		"clsx": "^2.1.0",
+		"mode-watcher": "^0.3.0",
+		"svelte-radix": "^1.1.0",
+		"svelte-sonner": "^0.3.21",
+		"tailwind-merge": "^2.2.2",
+		"tailwind-variants": "^0.2.1"
 	}
 }

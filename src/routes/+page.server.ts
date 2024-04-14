@@ -1,7 +1,9 @@
 import type { PageServerLoad } from './$types';
 import { fail } from '@sveltejs/kit'
+import { toast } from 'svelte-sonner';
 
-const Rokusho: number = 76561198054202136
+const Rokusho: number = 93936408
+
 
 const reviews = [
     {
@@ -30,19 +32,42 @@ const reviews = [
     },
 ]
 
-const test = [
-
+const hero = [
+    {
+        name: "Ursa",
+        wins: 300,
+        losses: 100
+    },
+    {
+        name: "Anti-Mage",
+        wins: 50000,
+        losses: 2344
+    },
+    {
+        name: "Drow-Ranger",
+        wins: 542,
+        losses: 74
+    },
 ]
-function rating() {
 
-}
+// const test = [
+
+// ]
+// function rating() {
+
+// }
 
 export const load = (async () => {
+    const userProfileResponse = await fetch(`https://api.opendota.com/api/players/${Rokusho}`)
+    const userProfileData = await userProfileResponse.json()
 
+    const userWinLossResponse = await fetch(`https://api.opendota.com/api/players/${Rokusho}/wl`)
+    const userWinLossData = await userWinLossResponse.json()
+    
+    const userHeroesResponse = await fetch(`https://api.opendota.com/api/players/${Rokusho}/heroes`)
+    const userHeroesData = await userHeroesResponse.json()
 
-
-
-    return {reviews};
+    return {userProfileData, userWinLossData, reviews, hero};
 }) satisfies PageServerLoad;
 
 
@@ -56,18 +81,20 @@ export const actions = {
         const form = await event.request.formData()
         const username = form.get('username')
         const comment = form.get('comment')
+        //@ts-ignore
         if(username.length < 2){
-            return fail(418, {username, missing:true})
-        } else if(comment.length < 2){
-            return fail(418, {username, missing2:true})
+            return fail(418, {username, missingUsername:true})
+        //@ts-ignore
         } else {
             reviews.push({
+                //@ts-ignore
                 username: username,
+                //@ts-ignore
                 comment: comment,
                 date: currentDate
             })
         }
-        // console.log(leUser.className)
+        return { success: true}
     }
 
 }
