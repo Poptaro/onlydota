@@ -36,20 +36,85 @@ const hero = [
     {
         name: "Ursa",
         wins: 300,
-        losses: 100
+        losses: 100,
+        total: 400,
     },
     {
         name: "Anti-Mage",
         wins: 50000,
-        losses: 2344
+        losses: 2344,
+        total: 50344,
     },
     {
         name: "Drow-Ranger",
         wins: 542,
-        losses: 74
+        losses: 74,
+        total: 616,
     },
 ]
 
+const matches = [
+    {
+        matchid: 128274,
+        hero: "Ursa",
+        heroimg: "urssy",
+        kills: 49,
+        deaths: 5,
+        assists: 3,
+        damage: 289127,
+        networth: 40235,
+        items:[
+            "Battle-Fury",
+            "Phase Boots",
+            "Blink-Dagger",
+            "Black King Bar",
+            "Satanic", 
+            "Aghanim's Scepter"
+        ],
+        lh: 593,
+        dn: 42,
+    },
+    {
+        matchid: 289374,
+        hero: "Anti-Mage",
+        heroimg: "anti",
+        kills: 42,
+        deaths: 9,
+        assists: 19,
+        damage: 90192,
+        networth: 52321,
+        items:[
+            "Battle-Fury",
+            "Phase Boots",
+            "Eye of Skadi",
+            "Manta Style",
+            "Butterfly", 
+            "Aghanim's Scepter"
+        ],
+        lh: 900,
+        dn: 87,
+    },
+    {
+        matchid: 998347,
+        hero: "Terror Blade",
+        heroimg: "TB",
+        kills: 90,
+        deaths: 2,
+        assists: 4,
+        damage: 102494,
+        networth: 87623,
+        items:[
+            "Hurricane Pike",
+            "Boots",
+            "Eye of Skadi",
+            "Manta Style",
+            "Butterfly", 
+            "Aghanim's Scepter"
+        ],
+        lh: 1200,
+        dn: 109,
+    }
+]
 // const test = [
 
 // ]
@@ -58,16 +123,14 @@ const hero = [
 // }
 
 export const load = (async () => {
-    const userProfileResponse = await fetch(`https://api.opendota.com/api/players/${Rokusho}`)
-    const userProfileData = await userProfileResponse.json()
 
-    const userWinLossResponse = await fetch(`https://api.opendota.com/api/players/${Rokusho}/wl`)
-    const userWinLossData = await userWinLossResponse.json()
+
+    // const userWinLossResponse = await fetch(`https://api.opendota.com/api/players/${Rokusho}/wl`)
+    // const userWinLossData = await userWinLossResponse.json()
     
-    const userHeroesResponse = await fetch(`https://api.opendota.com/api/players/${Rokusho}/heroes`)
-    const userHeroesData = await userHeroesResponse.json()
-
-    return {userProfileData, userWinLossData, reviews, hero};
+    // const userHeroesResponse = await fetch(`https://api.opendota.com/api/players/${Rokusho}/heroes`)
+    // const userHeroesData = await userHeroesResponse.json()
+    return { reviews, hero, matches};
 }) satisfies PageServerLoad;
 
 
