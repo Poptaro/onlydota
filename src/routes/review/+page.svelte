@@ -28,8 +28,6 @@
                 <Button class="w-36 hover:bg-purple-300 hover:text-black">Review me</Button>
             </Dialog.Trigger>
 			
-
-			
 			<Dialog.Content class="sm:max-w-[600px] bg-purple-100 border-solid border-black border-4">
 				<Dialog.Header>
 					<Dialog.Title class="text-xl">
@@ -84,8 +82,7 @@
 						</Label>
 
 						<div class="flex justify-center">
-							<Button type="submit" class="w-40 hover:bg-purple-300 hover:text-black"
-								>Post Review</Button
+							<Button type="submit" class="w-40 hover:bg-purple-300 hover:text-black">Post Review</Button
 							>
 						</div>
 					</form>

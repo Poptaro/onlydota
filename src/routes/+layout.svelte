@@ -1,22 +1,21 @@
 <script>
 	import { Button } from '$lib/components/ui/button';
 
-	import gliu from '$lib/img/gliu.png';
+	// import gliu from '$lib/img/gliu.png';
 
 	export let data;
 
-	//  const user = data.userProfileData.profile
-	const user = data.userProfileData;
+	const user = data.userProfileData.profile;
 </script>
 
 <div class="whole">
 	<div class="headerbox ahri mt-1">
 		<img
-			src={gliu}
+			src={user.avatarfull}
 			alt="BHBS"
 			width="200px"
 			height="200px"
-			class="border-4 rounded-full w-44 h-44"
+			class="border-4 rounded-full size-44"
 		/>
 		<a href={user.profileurl}>
 			<p class="text-4xl text-white">{user.personaname}</p>
@@ -44,6 +43,7 @@
 		height: 100%;
 		min-width: 1000px;
 		width: 1369px;
+		color: hsl(var(--muted-foreground) / var(--tw-text-opacity));
 	}
 
 	.whole {
